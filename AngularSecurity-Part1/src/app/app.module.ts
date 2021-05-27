@@ -10,6 +10,9 @@ import { CategoryService } from './category/category.service';
 import { CategoryListComponent } from './category/category-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SecurityService } from './security/security.service';
+import { LoginComponent } from './security/login.component';
+import { AuthGuard } from './security/auth.guard';
 
 @NgModule({
   declarations: [
@@ -17,14 +20,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ProductListComponent,
     ProductDetailComponent,
     CategoryListComponent,
-    DashboardComponent
+    DashboardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule
   ],
-  providers: [ProductService, CategoryService],
+  providers: [ProductService, CategoryService, SecurityService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
